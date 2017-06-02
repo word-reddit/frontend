@@ -1,0 +1,29 @@
+{
+  "name": "word-reddit",
+  "version": "1.0.0",
+  "description": "Word Reddit frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "testDaShit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/word-reddit/frontend.git"
+  },
+  "keywords": [
+    "Reddit",
+    "Client",
+    "JS",
+    "NodeJS",
+    "HTML",
+    "CSS",
+    "Ajax",
+    "Word"
+  ],
+  "author": "garned, higgs01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/word-reddit/frontend/issues"
+  },
+  "homepage": "https://github.com/word-reddit/frontend#readme"
+}
