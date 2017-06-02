@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Worddit</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/mustache.min.js"></script>
+	<script type="text/javascript" src="js/gui.js"></script>
+</head>
+<body>
+	<header>
+		<div id="header-top">
+			<img id="SaveBtn" src="img/SaveBtn.png">
+			<img id="DocName" src="img/DocName.png">
+			<img id="WindowOpt" src="img/WindowOpt.png">
+		</div>
+		<div id="header-menu">
+			<img id="ToolBarWide" src="img/ToolBarWide.png">
+			<img id="ToolBarFiller" src="img/ToolBarFiller.png">
+		</div>
+	</header>
+
+	<div id="content">
+		<div id="sidemenu">
+			<img src="img/NavTitle.png">
+			<div id="NavSearch">
+				
+			</div>
+			<img src="img/NavTabs.png">
+		</div>
+		<div id="sheet">
+			<p id="subredditName"></p>
+			<!--Subreddit data-->
+		</div>
+	</div>
+
+	<footer>
+		<img id="lang" src="img/LangAndWords.png">
+		<img id="zoom" src="img/Zoom.png">
+	</footer>
+
+	<template id="post-template">
+  		<div class="post" id="{{permalink}}">
+    		<h2 class="post-title"><a href="#">{{title}}</a></h2>
+    		<ul>
+      			<li class="post-votes">Score: {{score}}</li>
+      			<li class="post-comments">Comments: {{num_comments}}</li>
+    		</ul>
+    		<p>{{selftext}}</p>
+  		</div>
+	</template>
+</body>
+</html>
