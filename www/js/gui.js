@@ -23,7 +23,7 @@ function renderSubReddit(data){
   });
 }
 
-ction makeRequest(url) {
+function makeRequest(url) {
   var address = server + url;
 
   $.ajax({
