@@ -75,6 +75,18 @@ header{
 	border-right: 1px solid #C6C6C6;
 }
 
+#subredditPages{
+	margin-left: 16px;
+	list-style-type: none;
+}
+
+#urlInput{
+	margin-left: 16px;
+	width: calc(100% - 32px);
+
+	font-size: 16px;
+}
+
 footer{
 	position: fixed;
 	width: 	100vw;
@@ -87,6 +99,10 @@ footer{
 
 
 /*Content formatting*/
+#subredditName{
+	font-size: 28px;
+}
+
 .post{
 	margin-top: 30px;
 }
@@ -95,12 +111,20 @@ footer{
 	margin-left: 20px;
 }
 
-.post-title a{
+.post-title{
 	text-decoration: none;
 	font-style: normal;
 	font-size: 16px;
 	color: #5C95C7;
 }
+
+
+.subName{
+	text-decoration: none;
+	font-size: 11px;
+	color: lightgray;
+}
+
 
 
 /*Images*/
