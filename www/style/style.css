@@ -2,6 +2,8 @@
 	--sheetWidth: 840px;
 	--navWidth: 297px;
 	--headerHeight: 160px;
+	--toolBarWideWidth: 1904px;
+	--toolBarSmallWidth: 957px;
 }
 
 @font-face { 
@@ -33,6 +35,12 @@ header{
 	border-bottom: 	1px solid #D2D2D2;
 }
 
+a{
+	text-decoration: none;
+	font-style: normal;
+	color: black;
+}
+
 #header-top{
 	width: 100vw;
 	background-color: #2A579A;
@@ -52,6 +60,7 @@ header{
 
 #sheet{
 	width: var(--sheetWidth);
+	min-height: 80vh;
 
 	margin-left: calc((100vw - var(--navWidth) - var(--sheetWidth) )/2 + 297px);
 	margin-top: 160px;
@@ -103,6 +112,11 @@ footer{
 	font-size: 28px;
 }
 
+#pageName{
+	font-size: 11px;
+	color: darkgray;
+}
+
 .post{
 	margin-top: 30px;
 }
@@ -118,14 +132,11 @@ footer{
 	color: #5C95C7;
 }
 
-
 .subName{
 	text-decoration: none;
 	font-size: 11px;
 	color: lightgray;
 }
-
-
 
 /*Images*/
 #WindowOpt{
@@ -139,10 +150,21 @@ footer{
 
 #ToolBarFiller{
 	float: right;
-	width: calc(100vw - 1904px); /*Stretches to match the width of the screen*/
+	width: calc(100vw - var(--toolBarWideWidth)); /*Stretches to match the width of the screen*/
 	height: 121px;
 }
 
 #zoom{
 	float: 	right;
+}
+
+/*Scaling on screens 1600px wide or smaller*/
+@media (max-width: 1600px){
+	#ToolBar{
+		content:url("../img/ToolBarSmall.png");
+	}
+
+	#ToolBarFiller{
+		width: calc(100vw - var(--toolBarSmallWidth)); /*Stretches to match the width of the screen*/
+	}
 }

@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>Worddit</title>
-	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css" media="screen">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/mustache.min.js"></script>
@@ -29,20 +30,22 @@
 			</div>
 			<img src="img/NavTabs.png">
 			<ul id="subredditPages">
-				<li class="subredditPage" page="hot">Hot</li>
-				<li class="subredditPage" page="new">New</li>
-				<li class="subredditPage" page="rising">Rising</li>
-				<li class="subredditPage" page="controversial">Controversial</li>
-				<li class="subredditPage" page="gilded">Gilded</li>
-				<li class="subredditPage" page="promoted">Promoted</li>
+				<li><a class="subredditPage" href="#" page="hot">Hot</a></li>
+				<li><a class="subredditPage" href="#" page="new">New</a></li>
+				<li><a class="subredditPage" href="#" page="rising">Rising</a></li>
+				<li><a class="subredditPage" href="#" page="controversial">Controversial</a></li>
+				<li><a class="subredditPage" href="#" page="gilded">Gilded</a></li>
+				<li><a class="subredditPage" href="#" page="promoted">Promoted</a></li>
 			</ul>
 		</div>
 		<div id="sheet">
 			<p id="subredditName"></p>
+			<p id="pageName"></p>
+			<!--Subreddit data-->
 			<div id="sheet-content">
 
 			</div>
-			<!--Subreddit data-->
+			
 		</div>
 	</div>
 
@@ -53,7 +56,10 @@
 
 	<template id="post-template">
   		<div class="post">
-    		<h2><a class="post-title" href="#" permalink="{{permalink}}">{{title}}</a><a href="#" class="subName" subreddit="{{subreddit}}"">/r/{{subreddit}}</a></h2>
+    		<h2>
+    			<a class="post-title" href="#" permalink="{{permalink}}">{{title}}</a>
+    			<a href="#" class="subName" subreddit="{{subreddit}}"">/r/{{subreddit}}</a>
+    		</h2>
     		<ul>
       			<li class="post-votes">Score: {{score}}</li>
       			<li class="post-comments">Comments: {{num_comments}}</li>

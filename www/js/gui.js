@@ -15,6 +15,8 @@ $( document ).ready(function(){
 });
 
 function initActionListeners() {
+  $("html").find("*").off();
+
   $(".post-title").click(function(event){
     getPost($(event.target).attr('permalink'));
   });
@@ -24,17 +26,24 @@ function initActionListeners() {
     getSubReddit($(event.target).attr('subreddit'), '');
   });
 
+  $(".subredditPage").click(function(event){
+    getSubReddit(currentSub, $(event.target).attr('page'));
+    console.log($(event.target).attr('page'));
+  });
+
 }
 
 
 function getSubReddit(subName, pageName) {
   currentSub = subName;
+  currentSubPage = pageName;
   makeRequest("/r/" + subName + "/" + pageName, "subreddit");
 }
 
 
 function getPost(permalink){
   currentSub = permalink.split("/")[2];
+  currentSubPage = "";
   makeRequest(permalink, "post");
 }
 
@@ -43,6 +52,7 @@ function getPost(permalink){
 function renderSubReddit(data){
   container.html("");
   $("#subredditName").html(currentSub);
+  $("#pageName").html(currentSubPage);
 
   data.data.children.forEach(function(item, index){
     var html = Mustache.to_html(subredditTempStr, item.data);
@@ -55,18 +65,23 @@ function renderSubReddit(data){
 function renderPost(data){
   container.html("");
   $("#subredditName").html(currentSub);
+  $("#pageName").html(currentSubPage);
+
+  initActionListeners();
 }
 
 function makeRequest(url, dataType) {
   var address = server + url;
 
-  console.log(address);
+  console.log("Requested:" + address);
 
   $.ajax({
     url: address,
     async: true,
     dataType: "jsonp", //Use JSONP, the browser will block the cross-domain request otherwise
     success: function(data) {
+      console.log("Response: " + data)
+
       switch(dataType){
         case("subreddit"):
           renderSubReddit(data);
@@ -81,7 +96,7 @@ function makeRequest(url, dataType) {
     },
     error: function(_error) {
       console.log(_error.statusCode());
-      return { error: "oh-shit" };
+      return { error: "itz dat error" };
     }
   });
 }
